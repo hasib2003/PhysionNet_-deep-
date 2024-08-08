@@ -5,8 +5,8 @@ tmin and tmax are to be set from env
 """
 import mne
 import numpy as np
-# import config_local
-import config
+import config_colab
+# import config
 import os 
 
 

@@ -8,8 +8,8 @@ import mne
 import numpy as np
 
 # custom
+import config_colab
 # import config
-import config
 from pre_processors import PreProcessor
 from utlis import Utlis
 

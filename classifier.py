@@ -4,7 +4,7 @@
 import torch.nn as nn
 import torch
 # import config_local
-import config
+import config_colab
 import os
 
 class Deep_Classifier(nn.Module):
@@ -33,8 +33,9 @@ class Deep_Classifier(nn.Module):
 
         self.relu = nn.ReLU()
     
-    def embed(self,x,last=1):
-        
+    def forward(self,x,last=1):
+                
+
         x =torch.unsqueeze(x, 1) # adding a channel dimension
         x = x.permute(0,1,3,2)
 
@@ -84,40 +85,40 @@ class Deep_Classifier(nn.Module):
         return out
 
 
-    def forward(self, x):
+    # def forward(self, x):
         
-        x =torch.unsqueeze(x, 1) # adding a channel dimension
+        # x =torch.unsqueeze(x, 1) # adding a channel dimension
 
-        x = x.permute(0,1,3,2)
+        # x = x.permute(0,1,3,2)
 
-        # x = self.bn1(x)
+        # # x = self.bn1(x)
     
-        out = self.conv1(x)
-        out  = self.max_pool(out)
-        out = self.relu(out)
+        # out = self.conv1(x)
+        # out  = self.max_pool(out)
+        # out = self.relu(out)
 
-        out = self.conv2(out)
-        out  = self.max_pool(out)
-        out = self.relu(out)
+        # out = self.conv2(out)
+        # out  = self.max_pool(out)
+        # out = self.relu(out)
         
-        out = self.conv3(out)
-        out  = self.max_pool(out)
-        out = self.relu(out)
-        out = self.point_wise(out)
+        # out = self.conv3(out)
+        # out  = self.max_pool(out)
+        # out = self.relu(out)
+        # out = self.point_wise(out)
+        # # out = out.view(out.shape[0],-1)
+
+        # # print("out.shape -> ",out.shape)
+        # # return
+        
+        # # flattening the output
         # out = out.view(out.shape[0],-1)
 
-        # print("out.shape -> ",out.shape)
-        # return
-        
-        # flattening the output
-        out = out.view(out.shape[0],-1)
+        # out = self.dropout(out)
 
-        out = self.dropout(out)
-
-        out = self.relu(self.fc1(out))
-        # out = self.relu(self.fc2(out))
-        out = self.relu(self.fc3(out))
-        out = self.relu(self.fc4(out))
-        out = self.relu(self.fc5(out))
+        # out = self.relu(self.fc1(out))
+        # # out = self.relu(self.fc2(out))
+        # out = self.relu(self.fc3(out))
+        # out = self.relu(self.fc4(out))
+        # out = self.relu(self.fc5(out))
         
-        return out
+        # return out
